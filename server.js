@@ -11,6 +11,11 @@ const PORT = 3001
 // Use app to create a public folder /public/, this will be the default landing page
 app.use(express.static('public'));
 
+// Middleware to set up express app across webApp
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Uses directory to serve html file based off of URL
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
