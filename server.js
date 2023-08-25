@@ -14,6 +14,8 @@ app.use(express.static('public'));
 // Middleware to set up express app across webApp
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+  
+app.use('/api/notes', require('./routes/apiRoute'))
 
 // Uses directory to serve html file based off of URL
 app.get('/notes', (req, res) =>
