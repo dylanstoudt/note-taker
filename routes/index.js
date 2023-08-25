@@ -1,7 +1,6 @@
 // Import path
 const path = require('path');
 
-
 // Export app for routes
 module.exports = (app) => {
 
