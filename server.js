@@ -14,16 +14,10 @@ app.use(express.static('public'));
 // Middleware to set up express app across webApp
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-  
-app.use('/api/notes', require('./routes/apiRoute'))
 
-// Uses directory to serve html file based off of URL
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+// routes to route files
+require('./routes/apiRoute')(app);
+require('./routes/index')(app);
 
 // Listener for port 3001, displays a console log to show activation
 app.listen(PORT, () =>
