@@ -6,7 +6,7 @@ const path = require('path');
 const app = express()
 
 // Set Port
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 // Use app to create a public folder /public/, this will be the default landing page
 app.use(express.static('public'));
